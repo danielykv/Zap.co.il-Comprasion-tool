@@ -26,11 +26,12 @@ app.get("/scrape", async (req, res) => {
   try {
     // Read product names and links from column A and B of the Google Sheets file
     const values = await getGoogleSheetValues(spreadsheetId, range);
-    console.log(values + "check1!!!!!!!!!!!!");
     // Iterate over the rows starting from the second row
     for (let i = 1; i < values.length; i++) {
       const productName = values[i][0];
       const productLink = values[i][1];
+      const storeName = values[i][2];
+      const productTitle = values[i][3];
 
       // Check if the product link is empty
       if (!productLink) {
@@ -41,6 +42,16 @@ app.get("/scrape", async (req, res) => {
           [newProductLink],
         ]);
       }
+
+      // Check if the product title is empty and there's a product link
+      if (productLink && !productTitle) {
+        const newProductTitle = await getProductTitle(productLink);
+
+        // Update the corresponding title in column D of the Google Sheets file
+        await updateGoogleSheet(spreadsheetId, `Sheet1!D${i + 1}`, [
+          [newProductTitle],
+        ]);
+      }
     }
 
     res.send("Web scraping and updating completed successfully");
@@ -49,6 +60,20 @@ app.get("/scrape", async (req, res) => {
     res.status(500).send("Error occurred during web scraping and updating.");
   }
 });
+
+const getProductTitle = async (productLink) => {
+  const browser = await puppeteer.launch({headless: false});
+  const page = await browser.newPage();
+
+  await page.goto(productLink);
+  await page.click(".all-stores")
+  // Extract the product title
+  const title = await page.title();
+
+  await browser.close();
+
+  return title;
+};
 
 const getGoogleSheetValues = async (spreadsheetId, range) => {
   try {
@@ -94,7 +119,9 @@ const updateGoogleSheet = async (spreadsheetId, range, values) => {
       spreadsheetId,
       range,
       valueInputOption: "RAW",
-      resource: { values },
+      resource: {
+        values,
+      },
     });
     console.log("Google Sheets updated successfully");
   } catch (error) {
@@ -102,6 +129,7 @@ const updateGoogleSheet = async (spreadsheetId, range, values) => {
     throw error;
   }
 };
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
