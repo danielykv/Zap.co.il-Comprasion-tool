@@ -1,66 +1,163 @@
-html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100%;
-  overflow-x: hidden;
-}
-
-.background {
-  background: linear-gradient(to bottom, #13293d, #01060e);
-  min-height: 100vh;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  display: flex; /* Add flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .container {
-  width: 100%;
+  /* ... existing styles ... */
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px; /* Adjust the value as per your preference */
+}
+.container img {
+  margin-bottom: 15px; /* Add some spacing between the image and the heading */
+  max-height: 290px;
+  position: relative;
+  top: -200px;
+  animation: fadeInAnimation 0.5s ease-in-out;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.background {
+  /* Add animation */
+  animation: gradientAnimation 10s infinite alternate;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #fff;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: transparent;
+  background-image: linear-gradient(45deg, #553c9a, #ee4b2b);
+  background-clip: text;
+  -webkit-text-stroke: 0.9px;
+  -webkit-text-stroke-color: black;
+  -webkit-background-clip: text;
+  position: relative;
+  top: -200px;
+  animation: fadeInAnimation 0.5s ease-in-out;
 }
-
+p {
+  margin-top: 0px;
+  font-size: 22px;
+  position: relative;
+  top: -200px;
+  animation: fadeInAnimation 0.5s ease-in-out;
+  font-family: "Verdana", sans-serif;
+}
 .input-container {
-  display: flex;
-  gap: 10px;
+  margin-top: 20px;
+  top: -200px;
+  position: relative;
+  animation: fadeInAnimation 0.5s ease-in-out;
 }
 
 input {
-  padding: 10px;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 12px;
+  font-size: 18px;
   border: none;
-  cursor: pointer;
+  border-radius: 20px 0 0 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-  background-color: #0056b3;
+button[type="submit"] {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: #23a6d5;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #1b8db7;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(35, 166, 213, 0.4);
 }
 
 .result {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #fff;
+  font-size: 25px;
+  position: relative;
+  top: -170px;
   text-align: center;
+  animation: hoverAnimation 1s ease-in-out 15 2s alternate;
+}
+
+.table {
+  width: 100%;
+  margin-top: 0px;
+  color: #000;
+  position: relative;
+  top: -200px;
+  border-collapse: collapse;
+}
+.table th {
+  background-color: #e6e6e6;
+  font-size: 23px;
+  padding: 10px;
+  border: 1px solid #8d8282;
+}
+
+.table td {
+  background-color: #e6e6e6;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #8d8282;
+}
+
+.table tbody tr:hover {
+  background-color: #e6e6e6;
+  animation: hoverAnimation 0.7s ease-in-out;
+}
+
+.credit {
+  position: relative;
+  top: 350px;
+  font-size: 14px;
+  color: #bebebe;
+  text-align: center;
+}
+@keyframes hoverAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
