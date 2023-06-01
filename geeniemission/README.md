@@ -1,5 +1,5 @@
 
-![Logo](https://o.remove.bg/uploads/b4c26862-a0c9-4009-a0e4-70dca1f64d53/geeniexzaplogo.png)
+![Logo](https://i.postimg.cc/BZ8LTQwx/geeniexzaplogo.png)
 
 
 Hello, this is my solution to the assignment.\
@@ -37,4 +37,8 @@ That's it! Enjoy and Thank you!
 ## Screenshots
 
 ![App Screenshot](https://i.postimg.cc/pLRn2T7t/image.png)
+
+Short video of the project:
+
+https://drive.google.com/file/d/1N2FHu1FVRWip3x79D5nZahp6sHB2T8Wc/view
 
