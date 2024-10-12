@@ -2,7 +2,7 @@
 ![Logo](https://i.postimg.cc/BZ8LTQwx/geeniexzaplogo.png)
 
 
-Hello, this is my solution to the assignment.\
+This is my solution to Geenie's home assignment.\
 I used ExpressJS (based on NodeJS) to run my back-end server,\
 i used Puppeteer.js to gather and scrape the relevant data to complete the assignment, \
 And i also used ReactJS to make the required web app. \
