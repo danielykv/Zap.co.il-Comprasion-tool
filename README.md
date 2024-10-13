@@ -2,8 +2,8 @@
 ![Logo](https://i.postimg.cc/BZ8LTQwx/geeniexzaplogo.png)
 
 
-This is a tool that checks for a certain product, the location of the seller's store in relation to his competitors
-In the future, I will develop the tool to send notifications to the user via email/message every time his store location is changed.
+This is a tool that checks for a certain product, the location of the seller's store in relation to his competitors. \
+In the future, I will develop the tool to send notifications to the user via email/message every time his store location is changed.\
 I used ExpressJS (based on NodeJS) to run my back-end server,\
 i used Puppeteer.js to gather and scrape the relevant data to complete the assignment, \
 And i also used ReactJS to make the required web app. \
